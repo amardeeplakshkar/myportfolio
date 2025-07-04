@@ -1,5 +1,5 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from "lucide-react"
-import { NextjsIcon, ReactIcon, TypescriptIcon, PostgresIcon, FramerMotionIcon, NpmIcon } from "@/components/Icons"
+import { NextjsIcon, ReactIcon, TypescriptIcon, FramerMotionIcon, NpmIcon } from "@/components/Icons"
 
 export const SKILLS = [
     // Frontend

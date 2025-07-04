@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amardeep Lakshkar - Portfolio
 
-## Getting Started
+![Portfolio Banner](public/og-image.png)
 
-First, run the development server:
+## 🚀 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Welcome to my professional portfolio repository! This is a modern, responsive web application built with Next.js and TypeScript that showcases my skills, projects, and professional experience as a full-stack developer.
+
+Visit the live portfolio: [amardeep.space](https://amardeep.space)
+
+## ✨ Features
+
+- **Responsive Design**: Looks great on all devices from mobile to desktop
+- **Dark/Light Mode**: Toggle between themes for comfortable viewing
+- **Project Showcase**: Interactive cards displaying my featured projects
+- **Skills Section**: Comprehensive list of my technical skills
+- **Contact Information**: Easy ways to reach me through various platforms
+- **Modern UI**: Built with Tailwind CSS and shadcn/ui components
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: Custom components with [shadcn/ui](https://ui.shadcn.com/) principles
+- **Icons**: [Lucide React](https://lucide.dev/guide/packages/lucide-react)
+- **Carousel**: [Embla Carousel](https://www.embla-carousel.com/)
+- **Theme Switching**: [next-themes](https://github.com/pacocoursey/next-themes)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 📂 Project Structure
+
+```
+portfolio/
+├── app/                  # Next.js app directory
+│   ├── layout.tsx        # Root layout component
+│   ├── page.tsx          # Main portfolio page
+│   └── globals.css       # Global styles
+├── components/           # Reusable UI components
+│   ├── ui/               # Base UI components
+│   ├── ProjectCard.tsx   # Project display card
+│   ├── Carousel.tsx      # Image carousel component
+│   ├── Icons.tsx         # Custom icon components
+│   └── ...
+├── constants/            # Application constants
+│   └── index.ts          # Skills, projects, and contact info
+├── public/               # Static assets
+│   └── media/            # Project images
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18.x or higher
+- npm, yarn, or pnpm
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/amardeeplakshkar/portfolio.git
+   cd portfolio
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Customization
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To use this portfolio template for yourself:
+
+1. Update the constants in `constants/index.ts` with your own information:
+   - Skills
+   - Projects
+   - Contact information
+
+2. Replace project images in the `public/media/` directory
+
+3. Modify the main content in `app/page.tsx` to personalize your introduction
+
+## 📱 Featured Projects
+
+- **Ogify**: OG Image Generator for social media platforms
+- **Veloci UI**: React Component Library for building modern UIs
+- **Xenorai**: AI-powered chatbot with image and video generation
+- **Live Emoji**: Animated Emoji Icon npm package
+
+## 📞 Contact
+
+- Email: [amardeep.devs@gmail.com](mailto:amardeep.devs@gmail.com)
+- GitHub: [github.com/amardeeplakshkar](https://github.com/amardeeplakshkar)
+- LinkedIn: [linkedin.com/in/amardeep-lakshkar-24a339244](https://in.linkedin.com/in/amardeep-lakshkar-24a339244)
+- Twitter: [twitter.com/AmardeepDevs](https://x.com/AmardeepDevs)
+- Instagram: [instagram.com/amardeep.webdev](https://instagram.com/amardeep.webdev)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<p align="center">Designed & Developed with ❤️ by Amardeep Lakshkar</p>

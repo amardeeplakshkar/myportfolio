@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
-import { Download, GithubIcon, InstagramIcon, LinkedinIcon, MessageCircle, TwitterIcon } from 'lucide-react'
+import { Download, MessageCircle } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CarouselPlugin } from '@/components/Carousel'
@@ -37,7 +37,7 @@ const MainPage = () => {
         </Card>
         <Card className='gap-2'>
           <CardHeader>
-            <CardTitle className='text-xl font-semibold' >Let's Contact</CardTitle>
+            <CardTitle className='text-xl font-semibold' >Let&apos;s Contact</CardTitle>
           </CardHeader>
           <CardContent>
             <div className='flex flex-wrap gap-3'>

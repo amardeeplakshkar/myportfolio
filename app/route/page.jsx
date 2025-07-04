@@ -314,7 +314,7 @@ function App() {
           
           <CardFooter className="bg-gray-50 border-t px-6 py-4">
             <p className="text-sm text-gray-500">
-              Generated images are 1200×630 pixels, perfect for social media sharing.
+              Generated images are 1200 x 630 pixels, perfect for social media sharing.
             </p>
           </CardFooter>
         </Card>
