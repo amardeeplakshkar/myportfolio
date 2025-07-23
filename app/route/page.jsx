@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
-import { Download, RefreshCw, ArrowRight, Loader2 } from 'lucide-react';
+import { Download, RefreshCw, ArrowRight, Loader2, Upload, Link2, Image as ImageIcon } from 'lucide-react';
 import { Toaster, toast } from 'sonner';
 
 // Your predefined gradient colors
@@ -27,12 +27,15 @@ const GRADIENT_COLORS = [
 
 function App() {
   const canvasRef = useRef(null);
+  const fileInputRef = useRef(null);
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [screenshotPreviewUrl, setScreenshotPreviewUrl] = useState('');
+  const [uploadedImageUrl, setUploadedImageUrl] = useState('');
   const [ogImageUrl, setOgImageUrl] = useState('');
   const [gradientIndex, setGradientIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [inputMode, setInputMode] = useState('url'); // 'url' or 'upload'
 
   // Generate screenshot URL
   const generateScreenshotUrl = (url, width = 800, height = 600) => {
@@ -64,6 +67,33 @@ function App() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Handle file upload
+  const handleFileUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      toast.error('Please upload an image file');
+      return;
+    }
+
+    // Validate file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error('File size must be less than 10MB');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const imageUrl = event.target?.result;
+      setUploadedImageUrl(imageUrl);
+      setScreenshotPreviewUrl(''); // Clear screenshot preview
+      toast.success('Image uploaded successfully!');
+    };
+    reader.readAsDataURL(file);
   };
 
   // Generate OG image with selected gradient
@@ -134,10 +164,11 @@ function App() {
   };
 
   const handleCreateOgImage = () => {
-    if (screenshotPreviewUrl) {
+    const imageUrl = inputMode === 'url' ? screenshotPreviewUrl : uploadedImageUrl;
+    if (imageUrl) {
       setIsLoading(true);
       try {
-        generateOgImage(screenshotPreviewUrl);
+        generateOgImage(imageUrl);
         toast.success('OG Image generated successfully!');
       } catch (error) {
         console.error('Error generating OG image:', error);
@@ -174,36 +205,87 @@ function App() {
           <CardContent className="pt-6">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-4">
-                <div className="flex gap-2">
-                  <div className="flex-1">
-                    <Label htmlFor="website-url" className="sr-only">Website URL</Label>
-                    <Input
-                      id="website-url"
-                      type="url"
-                      placeholder="https://example.com"
-                      value={websiteUrl}
-                      onChange={(e) => setWebsiteUrl(e.target.value)}
-                      className="h-12 text-base"
-                      required
-                    />
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className="h-12 px-6"
-                    disabled={isLoading}
+                {/* Input Mode Selector */}
+                <div className="flex gap-2 p-1 bg-gray-800 rounded-lg">
+                  <Button
+                    type="button"
+                    variant={inputMode === 'url' ? 'default' : 'ghost'}
+                    className="flex-1 gap-2"
+                    onClick={() => setInputMode('url')}
                   >
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Generating...
-                      </>
-                    ) : (
-                      <>
-                        Generate <ArrowRight className="ml-2 h-4 w-4" />
-                      </>
-                    )}
+                    <Link2 className="h-4 w-4" />
+                    Website URL
+                  </Button>
+                  <Button
+                    type="button"
+                    variant={inputMode === 'upload' ? 'default' : 'ghost'}
+                    className="flex-1 gap-2"
+                    onClick={() => setInputMode('upload')}
+                  >
+                    <ImageIcon className="h-4 w-4" />
+                    Upload Image
                   </Button>
                 </div>
+
+                {/* URL Input */}
+                {inputMode === 'url' && (
+                  <div className="flex gap-2">
+                    <div className="flex-1">
+                      <Label htmlFor="website-url" className="sr-only">Website URL</Label>
+                      <Input
+                        id="website-url"
+                        type="url"
+                        placeholder="https://example.com"
+                        value={websiteUrl}
+                        onChange={(e) => setWebsiteUrl(e.target.value)}
+                        className="h-12 text-base"
+                        required
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="h-12 px-6"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Generating...
+                        </>
+                      ) : (
+                        <>
+                          Generate <ArrowRight className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                )}
+
+                {/* File Upload */}
+                {inputMode === 'upload' && (
+                  <div className="space-y-4">
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-gray-400 transition-colors">
+                      <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                      <p className="text-sm text-gray-600 mb-4">
+                        Drag and drop an image here, or click to select
+                      </p>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => fileInputRef.current?.click()}
+                      >
+                        Choose Image
+                      </Button>
+                    </div>
+                  </div>
+                )}
 
                 <div className="flex items-center justify-between">
                   <Button 
@@ -255,25 +337,28 @@ function App() {
                 )}
               </div>
 
-              {screenshotPreviewUrl && (
+              {/* Preview Section */}
+              {(screenshotPreviewUrl || uploadedImageUrl) && (
                 <div className="space-y-4">
                   <div className="border rounded-lg overflow-hidden">
                     <div className="p-3 bg-gray-50 border-b">
-                      <h3 className="font-medium">Screenshot Preview</h3>
+                      <h3 className="font-medium">
+                        {inputMode === 'url' ? 'Screenshot Preview' : 'Uploaded Image Preview'}
+                      </h3>
                     </div>
                     <img
-                      src={screenshotPreviewUrl}
-                      alt="Website Screenshot"
+                      src={inputMode === 'url' ? screenshotPreviewUrl : uploadedImageUrl}
+                      alt={inputMode === 'url' ? 'Website Screenshot' : 'Uploaded Image'}
                       className="w-full border-t"
                     />
                   </div>
                   
                   <div className="flex justify-end">
-                    <Button 
+                    <Button
                       type="button"
                       onClick={handleCreateOgImage}
                       className="gap-2"
-                      disabled={!screenshotPreviewUrl}
+                      disabled={!(screenshotPreviewUrl || uploadedImageUrl)}
                     >
                       <span>Create OG Image</span>
                       <ArrowRight className="h-4 w-4" />
@@ -314,7 +399,7 @@ function App() {
           
           <CardFooter className="bg-gray-50 border-t px-6 py-4">
             <p className="text-sm text-gray-500">
-              Generated images are 1200 x 630 pixels, perfect for social media sharing.
+              Generated images are 1200 x 1200 pixels, perfect for social media sharing.
             </p>
           </CardFooter>
         </Card>

@@ -1,5 +1,5 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from "lucide-react"
-import { NextjsIcon, ReactIcon, TypescriptIcon, FramerMotionIcon, NpmIcon } from "@/components/Icons"
+import { NextjsIcon, ReactIcon, TypescriptIcon, FramerMotionIcon, NpmIcon, InngestLogo, NeonDbIcon } from "@/components/Icons"
 
 export const SKILLS = [
     // Frontend
@@ -56,6 +56,31 @@ export const SKILLS = [
   ]
   
   export const PROJECTS = [
+    {
+      image: "/media/bloom.png",
+      title: "Bloom",
+      description: "AI Powered Autonomous Coding Agent. Write code faster with Bloom.",
+      url: "https://bloom.amardeep.space",
+      techStack:[
+        NextjsIcon,
+        InngestLogo,
+        NeonDbIcon,
+        ReactIcon,
+        TypescriptIcon,
+      ]
+    },
+    {
+      image: "/media/iris.png",
+      title: "Iris",
+      description: "A Multimodel AI Chatbot. with features like Artifacts, image generation, video transcription, text to speech, and more",
+      url: "https://iris.amardeep.space",
+      techStack:[
+        NextjsIcon,
+        NeonDbIcon,
+        ReactIcon,
+        TypescriptIcon,
+      ]
+    },
     {
       image: "/media/ogify.png",
       title: "Ogify",
