@@ -1,8 +1,8 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from "lucide-react"
 import { NextjsIcon, ReactIcon, TypescriptIcon, FramerMotionIcon, NpmIcon, InngestLogo, NeonDbIcon } from "@/components/Icons"
+import {createOpenAI} from '@ai-sdk/openai'
 
 export const SKILLS = [
-    // Frontend
     "React",
     "Next.js",
     "Tailwind CSS",
@@ -12,7 +12,6 @@ export const SKILLS = [
     "CSS",
     "Vite",
   
-    // Backend
     "Node.js",
     "Express.js",
     "MongoDB",
@@ -20,11 +19,9 @@ export const SKILLS = [
     "Prisma",
     "Drizzle ORM",
   
-    // Project Management
     "Git",
     "GitHub",
   
-    // Languages
     "JavaScript",
     "TypeScript",
     "PHP",

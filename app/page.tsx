@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
-import { Download, MessageCircle } from 'lucide-react'
+import { Download } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CarouselPlugin } from '@/components/Carousel'
@@ -9,29 +9,31 @@ import { SKILLS, CONTACT, PROJECTS } from '@/constants'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { BlurFade } from '@/components/magicui/blur-fade'
+import { ExpandableChatDemo } from '@/components/ExpandableChat'
+import { ChatWithMeButton } from '@/components/ChatWithMeButton'
 
 const MainPage = () => {
   return (
     <div className='p-6 px-4 grid gap-14 max-w-4xl mx-auto'>
       <div className='grid gap-4 mt-8'>
         <BlurFade delay={0.10} inView>
-        <h1 className='tracking-wide text-3xl font-semibold '>Amardeep Lakshkar</h1>
+          <h1 className='tracking-wide text-3xl font-semibold '>Amardeep Lakshkar</h1>
         </BlurFade>
         <BlurFade delay={0.20} inView>
-        <p className='text-muted-foreground'>
-          A passionate full-stack developer and freelancer, dedicated to building innovative products and web applications while delivering high-quality, client-focused solutions.
-        </p>
+          <p className='text-muted-foreground'>
+            A passionate full-stack developer and freelancer, dedicated to building innovative products and web applications while delivering high-quality, client-focused solutions.
+          </p>
         </BlurFade>
         <BlurFade delay={0.30} inView>
           <div className='flex items-center gap-2'>
             <Button><Download />Download CV</Button>
-            <Button variant={"outline"}><MessageCircle />Chat With Me</Button>
+            <ChatWithMeButton />
           </div>
         </BlurFade>
       </div>
       <BlurFade delay={0.20} className='grid gap-4 md:grid-cols-2'>
-          <Card className='gap-2'>
-        <BlurFade delay={0.40} inView>
+        <Card className='gap-2'>
+          <BlurFade delay={0.40} inView>
             <CardHeader>
               <CardTitle className='text-xl font-semibold' >Skills</CardTitle>
             </CardHeader>
@@ -42,10 +44,10 @@ const MainPage = () => {
                 ))}
               </div>
             </CardContent>
-        </BlurFade>
-          </Card>
-          <Card className='gap-2'>
-        <BlurFade delay={0.20} inView>
+          </BlurFade>
+        </Card>
+        <Card className='gap-2'>
+          <BlurFade delay={0.20} inView>
             <CardHeader>
               <CardTitle className='text-xl font-semibold' >Let&apos;s Contact</CardTitle>
             </CardHeader>
@@ -70,8 +72,8 @@ const MainPage = () => {
                 </div>
               </div>
             </CardContent>
-        </BlurFade>
-          </Card>
+          </BlurFade>
+        </Card>
       </BlurFade>
       <BlurFade delay={0.30} inView>
         <CarouselPlugin />
@@ -88,6 +90,7 @@ const MainPage = () => {
           ))}
         </div>
       </section>
+      <ExpandableChatDemo/>
       <BlurFade delay={0.20} inView>
         <Footer />
       </BlurFade>

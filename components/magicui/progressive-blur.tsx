@@ -17,7 +17,6 @@ export function ProgressiveBlur({
   position = "bottom",
   blurLevels = [0.5, 1, 2, 4, 8, 16, 32, 64],
 }: ProgressiveBlurProps) {
-  // Create array with length equal to blurLevels.length - 2 (for before/after pseudo elements)
   const divElements = Array(blurLevels.length - 2).fill(null);
 
   return (
@@ -35,7 +34,7 @@ export function ProgressiveBlur({
         height: position === "both" ? "100%" : height,
       }}
     >
-      {/* First blur layer (pseudo element) */}
+      {}
       <div
         className="absolute inset-0"
         style={{
@@ -57,7 +56,7 @@ export function ProgressiveBlur({
         }}
       />
 
-      {/* Middle blur layers */}
+      {}
       {divElements.map((_, index) => {
         const blurIndex = index + 1;
         const startPercent = blurIndex * 12.5;
@@ -86,7 +85,7 @@ export function ProgressiveBlur({
         );
       })}
 
-      {/* Last blur layer (pseudo element) */}
+      {}
       <div
         className="absolute inset-0"
         style={{

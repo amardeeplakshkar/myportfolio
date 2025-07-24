@@ -9,20 +9,19 @@ import { Switch } from '@/components/ui/switch';
 import { Download, RefreshCw, ArrowRight, Loader2, Upload, Link2, Image as ImageIcon } from 'lucide-react';
 import { Toaster, toast } from 'sonner';
 
-// Your predefined gradient colors
 const GRADIENT_COLORS = [
-  ["#4f0f6f", "#cb3ca0"], // T4.Chat
-  ["#254264", "#f57d4f"], // Huminex
-  ["#631b6e", "#ee8c5e"], // Build Portfolio
-  ["#0f384c", "#3cb4bf"], // Developer Think
-  ["#5c3f26", "#d9c4a1"], // Neuranium
-  ["#3c326f", "#ae85f3"], // Resume Editor
-  ["#20202b", "#1f9df7"], // OG Image Generator
-  ["#3e1c1c", "#df612d"], // Persona AI
-  ["#64113f", "#ef3f5e"], // Do Paste
-  ["#3a335d", "#dad9e5"], // Dribbble Clone
-  ["#1d283a", "#4c5b8c"], // Admin Dashboard
-  ["#19706d", "#d7f0d0"], // E-commerce
+  ["#4f0f6f", "#cb3ca0"], 
+  ["#254264", "#f57d4f"], 
+  ["#631b6e", "#ee8c5e"], 
+  ["#0f384c", "#3cb4bf"], 
+  ["#5c3f26", "#d9c4a1"], 
+  ["#3c326f", "#ae85f3"], 
+  ["#20202b", "#1f9df7"], 
+  ["#3e1c1c", "#df612d"], 
+  ["#64113f", "#ef3f5e"], 
+  ["#3a335d", "#dad9e5"], 
+  ["#1d283a", "#4c5b8c"], 
+  ["#19706d", "#d7f0d0"], 
 ];
 
 function App() {
@@ -35,9 +34,8 @@ function App() {
   const [gradientIndex, setGradientIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [inputMode, setInputMode] = useState('url'); // 'url' or 'upload'
+  const [inputMode, setInputMode] = useState('url'); 
 
-  // Generate screenshot URL
   const generateScreenshotUrl = (url, width = 800, height = 600) => {
     const params = new URLSearchParams({
       url: url,
@@ -51,7 +49,6 @@ function App() {
     return `https://api.microlink.io/?${params.toString()}`;
   };
 
-  // Handle form submit to fetch screenshot preview
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!websiteUrl) return;
@@ -69,18 +66,15 @@ function App() {
     }
   };
 
-  // Handle file upload
   const handleFileUpload = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate file type
     if (!file.type.startsWith('image/')) {
       toast.error('Please upload an image file');
       return;
     }
 
-    // Validate file size (max 10MB)
     if (file.size > 10 * 1024 * 1024) {
       toast.error('File size must be less than 10MB');
       return;
@@ -90,13 +84,12 @@ function App() {
     reader.onload = (event) => {
       const imageUrl = event.target?.result;
       setUploadedImageUrl(imageUrl);
-      setScreenshotPreviewUrl(''); // Clear screenshot preview
+      setScreenshotPreviewUrl(''); 
       toast.success('Image uploaded successfully!');
     };
     reader.readAsDataURL(file);
   };
 
-  // Generate OG image with selected gradient
   const generateOgImage = (imageUrl) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -105,17 +98,14 @@ function App() {
     canvas.width = size;
     canvas.height = size;
 
-    // Use current gradient
     const [colorStart, colorEnd] = GRADIENT_COLORS[gradientIndex];
 
-    // Create a vibrant gradient background
     const gradient = ctx.createLinearGradient(0, 0, size, size);
     gradient.addColorStop(0, colorStart);
     gradient.addColorStop(1, colorEnd);
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, size, size);
 
-    // Load and draw the screenshot image centered
     const img = new Image();
     img.crossOrigin = 'Anonymous';
     img.src = imageUrl;
@@ -127,19 +117,16 @@ function App() {
       let drawWidth, drawHeight;
 
       if (aspectRatio > 1) {
-        // Landscape
         drawWidth = maxImageSize;
         drawHeight = maxImageSize / aspectRatio;
       } else {
-        // Portrait
         drawHeight = maxImageSize;
         drawWidth = maxImageSize * aspectRatio;
       }
       const x = (size - drawWidth) / 2;
       const y = (size - drawHeight) / 2;
-      const radius = 20; // Corner radius
+      const radius = 20; 
 
-      // Draw rounded rectangle clip
       ctx.save();
       ctx.beginPath();
       ctx.moveTo(x + radius, y);
@@ -157,7 +144,6 @@ function App() {
       ctx.drawImage(img, x, y, drawWidth, drawHeight);
       ctx.restore();
 
-      // Save as data URL
       const dataUrl = canvas.toDataURL('image/png');
       setOgImageUrl(dataUrl);
     };
@@ -179,7 +165,6 @@ function App() {
     }
   };
 
-  // Randomize gradient index
   const handleRandomizeGradient = () => {
     let newIndex;
     do {
@@ -205,7 +190,7 @@ function App() {
           <CardContent className="pt-6">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-4">
-                {/* Input Mode Selector */}
+                {}
                 <div className="flex gap-2 p-1 bg-gray-800 rounded-lg">
                   <Button
                     type="button"
@@ -227,7 +212,7 @@ function App() {
                   </Button>
                 </div>
 
-                {/* URL Input */}
+                {}
                 {inputMode === 'url' && (
                   <div className="flex gap-2">
                     <div className="flex-1">
@@ -261,7 +246,7 @@ function App() {
                   </div>
                 )}
 
-                {/* File Upload */}
+                {}
                 {inputMode === 'upload' && (
                   <div className="space-y-4">
                     <input
@@ -337,7 +322,7 @@ function App() {
                 )}
               </div>
 
-              {/* Preview Section */}
+              {}
               {(screenshotPreviewUrl || uploadedImageUrl) && (
                 <div className="space-y-4">
                   <div className="border rounded-lg overflow-hidden">
@@ -405,7 +390,7 @@ function App() {
         </Card>
       </div>
 
-      {/* Hidden canvas for drawing */}
+      {}
       <canvas ref={canvasRef} className="hidden" />
     </div>
   );
