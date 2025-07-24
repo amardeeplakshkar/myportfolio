@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, FormEvent, KeyboardEvent } from "react"
-import { Send, Bot, Paperclip, Mic, CornerDownLeft } from "lucide-react"
+import { KeyboardEvent } from "react"
+import { Send, CornerDownLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
     ChatBubble,
@@ -20,7 +20,7 @@ import { useChat } from "@ai-sdk/react"
 import ReactMarkdown from "react-markdown"
 
 export function ExpandableChatDemo() {
-    const { messages, isLoading, input, setInput, handleSubmit, handleInputChange, } = useChat()
+    const { messages, isLoading, input, handleSubmit, handleInputChange, } = useChat()
 
     const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === 'Enter' && !e.shiftKey) {

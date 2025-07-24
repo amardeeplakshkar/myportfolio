@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const TypescriptIcon = ({ size = 24 }: { size: number }) => {
     return (

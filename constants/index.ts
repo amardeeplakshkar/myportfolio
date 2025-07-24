@@ -1,6 +1,5 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from "lucide-react"
 import { NextjsIcon, ReactIcon, TypescriptIcon, FramerMotionIcon, NpmIcon, InngestLogo, NeonDbIcon } from "@/components/Icons"
-import {createOpenAI} from '@ai-sdk/openai'
 
 export const SKILLS = [
     "React",
