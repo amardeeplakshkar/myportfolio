@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -130,4 +132,9 @@
   @media (width > 40rem /* 640px */) {
       max-width: 100%;
   }
+}
+
+nav{
+      max-width: var(--container-6xl);
+      margin: auto;
 }

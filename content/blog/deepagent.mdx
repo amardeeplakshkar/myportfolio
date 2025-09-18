@@ -1,0 +1,121 @@
+---
+title: DeepAgent – Building an Agentic SDK with 50+ Integrations
+description: How I built DeepAgent, a TypeScript-first SDK for intelligent agents with 50+ pre-built integrations.
+author: Amardeep Lakshkar
+date: 2025-09-18
+---
+
+In today’s landscape, applications are no longer static — they need to think, adapt, and integrate seamlessly with dozens of APIs. That’s the motivation behind **DeepAgent**, an **agentic SDK for modern applications**.  
+
+Instead of wiring up endless APIs manually, DeepAgent gives you **50+ pre-built integrations** out of the box — from AI to business intelligence, communication, CRM, search, and more. It’s built entirely in **TypeScript**, designed to work universally across **Node.js, browsers, and edge environments**, and ready for production.  
+
+## 🚀 Why DeepAgent?  
+
+While building intelligent apps, I found myself repeating the same work: connecting APIs, writing boilerplate, handling errors, and managing authentication. Every project started the same way.  
+
+DeepAgent changes that by offering:  
+
+- **50+ Pre-built Integrations** – APIs like GitHub, OpenAI, Twilio, Airtable, Notion, and more  
+- **100% TypeScript** – End-to-end type safety with strong definitions  
+- **Zero Configuration** – Plug and play with sensible defaults  
+- **Universal Compatibility** – Node.js, browser, edge-ready  
+- **Production Ready** – Error handling and best practices included  
+- **Modular Architecture** – Install only the integrations you need  
+
+It’s like having an **agent toolkit** that grows with your app.  
+
+## 📦 Quick Start  
+
+Install any integration package directly:  
+
+```bash
+# npm
+npm install @deepagent/github
+
+# yarn
+yarn add @deepagent/github
+
+# pnpm
+pnpm add @deepagent/github
+```
+
+Example with GitHub:  
+
+```ts
+import { GitHubClient } from '@deepagent/github'
+
+const github = new GitHubClient({
+  apiKey: process.env.GITHUB_TOKEN
+})
+
+// Fetch repository info
+const repo = await github.getRepository({
+  owner: 'amardeeplakshkar',
+  repo: 'deepagent'
+})
+
+// Create a new issue
+await github.createIssue({
+  owner: 'amardeeplakshkar',
+  repo: 'deepagent',
+  title: 'New feature request',
+  body: 'Description of the feature'
+})
+```
+
+Within minutes, your app can automate workflows that usually take hours of setup.  
+
+## 🔌 50+ Integrations Out of the Box  
+
+DeepAgent is packed with integrations across multiple domains:  
+
+- **AI & ML**: OpenAI, Midjourney, xAI  
+- **Search & Data**: Google, Bing, Brave, Exa, Tavily, SearxNG  
+- **Business & CRM**: Airtable, Notion, Apollo, Proxycurl, RocketReach, LeadMagic, ZoomInfo  
+- **Communication**: Slack, Twilio, Novu  
+- **Social Media**: Twitter/X, Reddit, YouTube  
+- **Web & Content**: GitHub, Google Drive, Firecrawl, Diffbot  
+- **Knowledge & Research**: Wikipedia, Arxiv, WolframAlpha, HackerNews  
+- **Utilities**: Calculator, Weather APIs, Jina, Typeform, Polygon  
+
+Each integration is published as its own `@deepagent/*` package, independently versioned and fully typed.  
+
+## 🏗 Built with Turborepo  
+
+DeepAgent is a **monorepo** powered by Turborepo:  
+
+- 📚 **Docs**: Built with Next.js + Fumadocs  
+- 📦 **Packages**: 50+ integration clients  
+- ✅ **Testing & Linting**: Robust setup for reliability  
+- 🚢 **Automated Releases**: Changesets + GitHub Actions for npm publishing  
+
+This makes contributions and scaling the ecosystem much easier.  
+
+## 🎯 Use Cases  
+
+- **AI-Powered Automation** – Automate GitHub PRs, run Slack notifications, publish content across platforms  
+- **Data Intelligence** – Aggregate Twitter, Reddit, and YouTube data for market insights  
+- **CRM Enhancement** – Lead generation, enrichment, and outreach with Apollo, ZoomInfo, Hunter, etc.  
+- **Smart Workflows** – Mix multiple APIs to build orchestrated agents  
+
+## 👨‍💻 Contributing  
+
+DeepAgent is **open source under MIT**. Contributions are welcome:  
+
+1. Fork the repo  
+2. Create a feature branch  
+3. Add or improve an integration  
+4. Submit a PR  
+
+Each integration follows strict guidelines: TypeScript-first, tested, and fully documented.  
+
+## 📈 Final Thoughts  
+
+With DeepAgent, my goal was to create an SDK that makes **building agents as simple as installing npm packages**. Instead of re-implementing integrations, you can focus on logic and intelligence while DeepAgent handles the heavy lifting.  
+
+👉 Try it out: [github.com/amardeeplakshkar/deepagent](https://github.com/amardeeplakshkar/deepagent)  
+
+---
+
+<p align="center"><strong>DeepAgent</strong> – An SDK for intelligent apps. Build smarter, faster.</p>  
+<p align="center">Made with ❤️ by <a href="https://amardeep.space">Amardeep Lakshkar</a></p> 

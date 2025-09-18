@@ -9,13 +9,18 @@ export const metadata: Metadata = {
   keywords: ['full-stack developer', 'freelancer', 'innovative products', 'web applications', 'client-focused solutions'],
   authors: [{ name: 'Amardeep Lakshkar' }],
   creator: 'Amardeep Lakshkar',
-   robots: {
+  robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
     },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
   openGraph: {
     title: "Amardeep Lakshkar",
@@ -25,13 +30,21 @@ export const metadata: Metadata = {
     siteName: "Amardeep Lakshkar",
     images: [
       {
-        url: "https://amardeep.space/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Amardeep Lakshkar",
       },
     ],
     url: "https://amardeep.space",
+  },
+  metadataBase: new URL("https://amardeep.space"),
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@amardeepdevs',
+    title: "Amardeep Lakshkar",
+    description: "A passionate full-stack developer and freelancer, dedicated to building innovative products and web applications while delivering high-quality, client-focused solutions.",
+    images: '/og-image.png',
   },
   title: "Amardeep Lakshkar",
   description: "A passionate full-stack developer and freelancer, dedicated to building innovative products and web applications while delivering high-quality, client-focused solutions.",

@@ -1,0 +1,105 @@
+---
+title: Building ClumpUI – A Unified React Component Registry
+description: One place, every component. My journey creating ClumpUI.
+author: Amardeep Lakshkar
+date: 2025-09-18
+---
+
+For a long time, I found myself switching between different React component libraries. Some had amazing animations, others were great at accessibility, and a few offered beautiful design systems. But I kept wishing there was **one place** where I could access the best of them — without being locked into just a single design language.  
+
+That’s how **ClumpUI** was born.  
+
+ClumpUI is a **unified component registry** that aggregates the best UI patterns from multiple libraries like **shadcn/ui**, **Magic UI**, **Kokonut UI**, and more. Instead of reinventing the wheel, it curates, organizes, and streamlines the process of bringing production-ready components into your project.  
+
+## Why ClumpUI?  
+
+When you start a new project, you usually face the same decision: *Which UI library should I commit to?* But each library comes with trade-offs — one may lack animations, another may not be responsive out of the box, or maybe it doesn’t fully support theming.  
+
+With ClumpUI, you don’t have to choose. You can:  
+
+- Pull in a **Particle Button** inspired by animated libraries  
+- Add a **Bento Grid** or **Apple Activity Card** with one click  
+- Build interfaces mixing and matching from different sources — all in a consistent way  
+
+It’s like having a **component marketplace** right inside your project.  
+
+## Features That Matter  
+
+ClumpUI isn’t just a collection — it’s a system designed for real-world development:  
+
+- 🎨 **200+ Components** ready to use  
+- 📦 **One-Click Install** via shadcn CLI  
+- 🌙 **Dark/Light Themes** with Tailwind v4  
+- ⚡ **Next.js 15 + Turbopack** for blazing-fast dev experience  
+- ♿ **Accessibility** as a core principle  
+- 🎭 **Multiple Styles** — borrow from any ecosystem  
+- 🔧 **Customizable** for your brand and product needs  
+
+## Component Categories  
+
+Here are some highlights:  
+
+- **AI Components** – AI input search, voice interfaces, loading states  
+- **Text Components** – glitch text, typewriter, shimmer, matrix effects  
+- **Button Components** – gradient, particle, hold, switch, command buttons  
+- **Card Components** – flip, stack, liquid glass, carousel, tweet cards  
+- **Other Essentials** – bento grids, navigation, profile dropdowns, background effects  
+
+Every component is built with **TailwindCSS, TypeScript, and accessibility-first patterns**.  
+
+## Quick Start  
+
+If you want to try ClumpUI locally, setup is simple:  
+
+```bash
+git clone https://github.com/amardeeplakshkar/clumpui.git
+cd clumpui
+pnpm install
+pnpm dev
+```
+
+Or install a component directly into your project with the CLI:  
+
+```bash
+npx shadcn@latest add https://clumpui.amardeep.space/r/particle-button
+```
+
+Then just import it:  
+
+```tsx
+import ParticleButton from "@/components/ui/particle-button"
+
+export default function Page() {
+  return <ParticleButton>Click me!</ParticleButton>
+}
+```
+
+That’s it — you’re ready to go.  
+
+## Under the Hood  
+
+ClumpUI is powered by **Next.js App Router** with a registry-based architecture. Each component lives in its own registry folder, is defined in \`registry.json\`, and can be fetched or installed dynamically.  
+
+It uses:  
+
+- **Tailwind CSS v4** with custom tokens for design consistency  
+- **Framer Motion** for smooth animations  
+- **Radix Primitives** for accessibility  
+- **TypeScript** for reliability  
+
+This makes the system highly **extensible**, so adding new components or categories is as easy as dropping in a new file and rebuilding the registry.  
+
+## Contributions  
+
+ClumpUI is an evolving ecosystem, and I welcome contributions from developers and designers who want to make components better. The goal is to make it a **community-driven registry** that grows with the needs of the React ecosystem.  
+
+## Final Thoughts  
+
+With ClumpUI, my goal was to create **a single place for every component you could possibly need**. Whether you’re building dashboards, landing pages, or AI-driven interfaces, you can mix and match the best UI elements without getting locked into one library.  
+
+👉 Explore it here: [clumpui.amardeep.space](https://clumpui.amardeep.space)  
+
+---
+
+<p align="center"><strong>ClumpUI</strong> – One place. Every component. Build better, faster.</p>  
+<p align="center">Made with ❤️ by <a href="https://x.com/amardeepdevs">Amardeep Lakshkar</a></p>  

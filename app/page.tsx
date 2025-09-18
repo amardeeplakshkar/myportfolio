@@ -10,8 +10,21 @@ import Link from 'next/link'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import { ExpandableChatDemo } from '@/components/ExpandableChat'
 import { ChatWithMeButton } from '@/components/ChatWithMeButton'
+import { blog } from '@/lib/source'
 
 const MainPage = () => {
+
+  const rawPosts = blog.getPages();
+
+  const posts = rawPosts.map((post: any) => ({
+    title: post.data.title,
+    description: post.data.description,
+    author: post.data.author,
+    date: post.data.date,
+    slug: post.slugs?.join("/") ?? "",
+    url: post.url,
+  }));
+
   return (
     <div className='p-6 px-4 grid gap-14 max-w-4xl mx-auto'>
       <div className='grid gap-4 mt-8'>
@@ -75,7 +88,7 @@ const MainPage = () => {
         </Card>
       </BlurFade>
       <BlurFade delay={0.30} inView>
-        <CarouselPlugin />
+        <CarouselPlugin posts={posts} />
       </BlurFade>
       <section>
         <BlurFade delay={0.40} inView>
@@ -89,7 +102,7 @@ const MainPage = () => {
           ))}
         </div>
       </section>
-      <ExpandableChatDemo/>
+      <ExpandableChatDemo />
       <BlurFade delay={0.20} inView>
         <Footer />
       </BlurFade>
