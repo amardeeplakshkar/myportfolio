@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Download } from 'lucide-react'
+import { BookCopyIcon, Download } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CarouselPlugin } from '@/components/Carousel'
@@ -40,6 +40,11 @@ const MainPage = () => {
           <div className='flex items-center gap-2'>
             <Button><Download />Download CV</Button>
             <ChatWithMeButton />
+            <Button variant={'outline'} asChild>
+              <Link href={'/blog'}>
+              <BookCopyIcon />Blogs
+              </Link>
+            </Button>
           </div>
         </BlurFade>
       </div>

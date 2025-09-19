@@ -45,7 +45,7 @@ export function CarouselPlugin({ posts }: { posts: any }) {
                                         <CardContent className="flex items-center gap-2 p-3 md:p-4 overflow-hidden">
                                             <img className='rounded-lg hidden sm:flex h-[4rem]' src={image.url} alt="" />
                                             <div className="flex-1 min-w-0">
-                                                <h2 className="text-lg md:text-xl  font-semibold mb-2 line-clamp-2 ">{post.title}</h2>
+                                                <h2 className="text-lg md:text-xl  font-semibold mb-2 line-clamp-1">{post.title}</h2>
                                                 <p className="text-xs md:text-sm   line-clamp-1">{post.description}</p>
                                             </div>
                                         </CardContent>

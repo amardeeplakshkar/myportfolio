@@ -1,5 +1,5 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from "lucide-react"
-import { NextjsIcon, ReactIcon, TypescriptIcon, FramerMotionIcon, NpmIcon, InngestLogo, NeonDbIcon } from "@/components/Icons"
+import { NextjsIcon, ReactIcon, TypescriptIcon, FramerMotionIcon, NpmIcon, InngestLogo, NeonDbIcon, FumadocsIcon } from "@/components/Icons"
 
 export const SKILLS = [
     "React",
@@ -52,6 +52,31 @@ export const SKILLS = [
   ]
   
   export const PROJECTS = [
+    {
+      image: "/media/deepagent.png",
+      title: "DeepAgent",
+      description: "a TypeScript-first SDK for intelligent agents with 50+ pre-built integrations.",
+      url: "https://deepagent.amardeep.space",
+      techStack:[
+        NpmIcon,
+        NextjsIcon,
+        ReactIcon,
+        TypescriptIcon,
+        FumadocsIcon
+      ]
+    },
+    {
+      image: "/media/clumpui.png",
+      title: "ClumpUI",
+      description: "UI Component Library: a single place for every component you could possibly need",
+      url: "https://clumpui.amardeep.space",
+      techStack:[
+        FramerMotionIcon,
+        NextjsIcon,
+        ReactIcon,
+        TypescriptIcon,
+      ]
+    },
     {
       image: "/media/bloom.png",
       title: "Bloom",
