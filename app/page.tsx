@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { BookCopyIcon, Download } from 'lucide-react'
+import { BookIcon, Download } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CarouselPlugin } from '@/components/Carousel'
@@ -42,7 +42,7 @@ const MainPage = () => {
             <ChatWithMeButton />
             <Button variant={'outline'} asChild>
               <Link href={'/blog'}>
-              <BookCopyIcon />Blogs
+              <BookIcon />Blogs
               </Link>
             </Button>
           </div>

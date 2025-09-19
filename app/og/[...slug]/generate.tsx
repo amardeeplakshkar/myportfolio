@@ -35,7 +35,7 @@ function generate({ title, description }: GenerateProps) {
   const siteName = 'Amardeep Lakshkar';
   const primaryTextColor = 'rgb(240,240,240)';
   const logo = (
-    <AmardeepLogo color='' size={100} />
+    <AmardeepLogo color='white' size={100} />
   );
 
   return (
